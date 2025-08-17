@@ -111,3 +111,9 @@ const sentence = "JavaScript is awesome";
 let firstWorld = sentence.slice(0, 10);
 let result = firstWorld;
 console.log(result);
+
+console.log("this is lesson 1");
+
+const styles = "padding: 10px;background-color: white;color: green;";
+console.log("%chello world", styles);
+console.log("%cALO", styles);
