@@ -39,11 +39,14 @@ let checkRunAgain = (gameFunc, message = "") => {
   }
 };
 
-let main = () => {
-  console.log("The Rock 🪨, Paper 🧻, or Scissors ✂️ Game");
-  let userChoicePrompt = prompt("Enter Rock 🪨, Paper 🧻, or Scissors: ");
+let getUserPrompt = (promptMessage) => {
+  let userPrompt = prompt(promptMessage);
+  let userChoice = userPrompt.toLowerCase();
 
-  let userChoice = userChoicePrompt.toLowerCase();
+  return userChoice;
+};
+
+let getComputerChoice = () => {
   let computerChoice;
 
   const randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -55,9 +58,20 @@ let main = () => {
     computerChoice = "scissors";
   }
 
+  return computerChoice;
+};
+
+let main = () => {
+  console.log("The Rock 🪨, Paper 🧻, or Scissors ✂️ Game");
+
+  let userChoice = getUserPrompt("Enter Rock 🪨, Paper 🧻, or Scissors: ");
+  let computerChoice = getComputerChoice();
+
+  // print out what we choose and what computer choose:
   console.log("User choose: ", userChoice);
   console.log("Computer choose: ", computerChoice);
 
+  // check condition win/lose/tie the game
   let userWinCondition =
     (userChoice === "rock" && computerChoice === "scissors") ||
     (userChoice === "scissors" && computerChoice === "paper") ||
